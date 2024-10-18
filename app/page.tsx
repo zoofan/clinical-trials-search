@@ -52,13 +52,13 @@ export default function Trials() {
     [includeCompleted, sortOrder]
   );
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
     setSearchQuery(query);
     debouncedFetchTrials(query, includeCompleted, sortOrder);
   };
 
-  const handleCheckboxChange = (event) => {
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
     setIncludeCompleted(checked);
     fetchTrials(searchQuery, checked, sortOrder);
@@ -101,7 +101,7 @@ export default function Trials() {
       {/* Trials List */}
       {!isLoading && trials.length > 0 && (
         <div className="space-y-4">
-          {trials.map((trial) => (
+          {trials.map((trial: any) => (
             <TrialCard key={trial.protocolSection.identificationModule.nctId} trial={trial} />
           ))}
         </div>
