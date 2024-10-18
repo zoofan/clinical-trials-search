@@ -93,7 +93,7 @@ def get_trials():
         )
 
         # Return the top 10 trials after filtering and sorting
-        return jsonify(filtered_data[:10]), 200
+        return jsonify(filtered_data[:30]), 200
 
     except FileNotFoundError:
         return jsonify({'error': 'Data file not found.'}), 500
